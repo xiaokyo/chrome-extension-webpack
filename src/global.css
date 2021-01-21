@@ -1,0 +1,16 @@
+.main {
+    position: fixed;
+    z-index: 1001;
+    width: 45px;
+    height: 45px;
+    right: 15px;
+    top: 30%;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #ccc;
+    cursor: pointer;
+}
+
+.main:hover {
+    box-shadow: 0 0 10px #ccc;
+}
