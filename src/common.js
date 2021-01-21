@@ -49,14 +49,20 @@ export function request({
  * @param {string} str 复制的文本
  */
 export function copyText(str) {
-    const input = document.createElement('input');
+    const input = document.createElement('div');
+    input.setAttribute('contenteditable', "true")
     document.body.appendChild(input);
-    input.setAttribute('value', str);
-    input.select();
+    input.innerText = str
+
+    const range = document.createRange()
+    range.selectNodeContents(input)
+    window.getSelection().removeAllRanges()
+    window.getSelection().addRange(range)
+
     if (document.execCommand('copy')) {
         document.execCommand('copy');
         // alert('复制成功:' + str);
-        layer.alert('复制成功')
+        alert('复制成功:\n' + str)
     }
     document.body.removeChild(input);
 }
