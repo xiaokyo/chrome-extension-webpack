@@ -2,7 +2,11 @@ import { copyText, getDaySpendUrl } from "../common"
 
 export const getDateSpend = () => {
     const queryUrl = location.href
-    const url = getDaySpendUrl();
+
+    const usernameDom = document.getElementsByClassName('avatar-text-default')[0]
+    if (!usernameDom) return alert('你未登录')
+    const username = usernameDom.getAttribute('title')
+    const url = getDaySpendUrl(username);
 
     // 先跳到指定页面在取数据
     if (queryUrl !== url) return location.href = url
